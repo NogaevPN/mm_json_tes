@@ -1,4 +1,5 @@
 <?php
+// Generating json file to test memory consumption
 
 $ar = [];
 
