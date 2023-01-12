@@ -20,7 +20,12 @@ class OfferFilterCommand extends Command {
 
 	protected LoggerInterface $logger;
 
-	private string $sourceUrl = __DIR__ . "/../../test.json";
+	/**
+	 * Test file location
+	 *
+	 * @var string
+	 */
+	protected string $sourceUrl = __DIR__ . "/../../test.json";
 
 	public function __construct(string $name = null) {
 		$this->logger = new FileLogger("processing.log");
@@ -39,7 +44,7 @@ class OfferFilterCommand extends Command {
 		$count = $this->filter->getCount($collection);
 		$this->logger->log("Filtered to $count");
 		$output->writeln($count);
-		$output->writeln("Memory " . round(memory_get_peak_usage() / 1024 / 1024, 2));
-		$output->writeln("took " . round(microtime(true) - $started, 3));
+		$output->writeln("Memory " . round(memory_get_peak_usage() / 1024 / 1024, 2) . " MB");
+		$output->writeln("took " . round(microtime(true) - $started, 3) . " seconds");
 	}
 }

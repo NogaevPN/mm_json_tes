@@ -7,13 +7,13 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class FilterByVendorIdCommand extends OfferFilterCommand {
+class CountByVendorIdCommand extends OfferFilterCommand {
 
 	const ARG_VENDOR_ID = "vendor_id";
 
-	protected static $defaultName = "filter_by_vendor_id";
+	protected static $defaultName = "count_by_vendor_id";
 
-	protected static $defaultDescription = "Get and filter offers by vendor id";
+	protected static $defaultDescription = "Count offers by vendor id";
 
 	protected function configure(): void {
 		$this->addArgument(self::ARG_VENDOR_ID, InputArgument::REQUIRED);
