@@ -1,0 +1,18 @@
+{
+  "require": {
+	"php" : "^7.4",
+	"phpunit/phpunit": "^9.5",
+	"symfony/console": "^5.4",
+	"ext-json": "*",
+	"ext-mbstring": "*",
+    "halaxa/json-machine": "^1.1"
+  },
+  "autoload": {
+	"psr-4": {
+	  "": "src/"
+	}
+  },
+  "scripts": {
+	"test" :"phpunit"
+  }
+}

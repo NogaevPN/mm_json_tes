@@ -1,0 +1,6 @@
+/vendor
+/.idea
+.phpunit.result.cache
+processing.log
+test.json
+composer.lock
