@@ -8,4 +8,4 @@ For example:
 
 php run.php count_by_vendor_id 42
 
-Script should work with big json file, and mustbe at least one unit test
+Script should work with big json file, and must be at least one unit test.
