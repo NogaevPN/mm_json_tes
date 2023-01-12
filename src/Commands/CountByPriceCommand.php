@@ -30,14 +30,17 @@ class CountByPriceCommand extends OfferFilterCommand {
 	 */
 	protected function execute(InputInterface $input, OutputInterface $output): int {
 		$priceFrom = $input->getArgument(self::ARG_PRICE_FROM);
-		if (!is_numeric($priceFrom) || $priceFrom < 0) {
+		if (!$this->isPositiveNumber($priceFrom)) {
 			$output->writeln(self::ARG_PRICE_FROM . " should be positive number");
 			return Command::INVALID;
 		}
-
 		$priceTo = $input->getArgument(self::ARG_PRICE_TO);
-		if (!is_numeric($priceTo) || $priceTo < 0) {
+		if (!$this->isPositiveNumber($priceTo)) {
 			$output->writeln(self::ARG_PRICE_TO . " should be positive number");
+			return Command::INVALID;
+		}
+		if ($priceTo < $priceFrom) {
+			$output->writeln(self::ARG_PRICE_TO . " should be bigger than " . self::ARG_PRICE_FROM);
 			return Command::INVALID;
 		}
 
@@ -46,5 +49,9 @@ class CountByPriceCommand extends OfferFilterCommand {
 		$this->logger->log("set price range filter from $priceFrom to $priceTo");
 		$this->filterAndPrintCount($output);
 		return Command::SUCCESS;
+	}
+
+	private function isPositiveNumber($value): bool {
+		return is_numeric($value) && $value > 0;
 	}
 }
