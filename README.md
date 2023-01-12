@@ -1,5 +1,5 @@
 # mm_json_test
-TaskL: create a CLI script which will read JSON based data from a specific endpoint via HTTP. The script will contain several sub-
+Task: create a CLI script which will read JSON based data from a specific endpoint via HTTP. The script will contain several sub-
 commands to filter and output the loaded data. The commands should be:
 
 Find objects by a certain sub-object definition.
